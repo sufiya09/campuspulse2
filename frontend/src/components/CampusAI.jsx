@@ -34,8 +34,7 @@ function CampusAI() {
     try {
       console.log("Sending AI request...");
 
-      const response = await fetch(
-        "http://localhost:5001/api/ai",
+      const response = await fetch("https://campuspulse2.onrender.com/api/ai", {
         {
           method: "POST",
           headers: {

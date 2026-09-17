@@ -40,7 +40,7 @@ import OrganizerDashboard from "./pages/OrganizerDashboard";
    Main Application
 ========================================================= */
 
-const API_URL = "http://localhost:5001";
+const API_URL = "https://campuspulse2.onrender.com";
 
 /* =========================================================
    DEFAULT EVENTS
