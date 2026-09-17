@@ -1563,17 +1563,28 @@ a {
 }
 
 .campus-ai-button {
-  width: 61px;
-  height: 61px;
+  position: fixed !important;
+  right: 24px !important;
+  bottom: 24px !important;
+  z-index: 99999 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px;
+
+  padding: 14px 20px;
   border: none;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #06b6d4, #0d9488);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 9px 28px rgba(8, 145, 178, 0.3);
-  transition: all 0.25s ease;
+  border-radius: 999px;
+
+  background: #6c4cff;
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+
 }
 
 .campus-ai-button:hover {
@@ -2193,4 +2204,49 @@ a {
   .campus-ai-window {
     width: 320px;
   }
+}
+.campus-ai-input-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background: white;
+  border-top: 1px solid #eee;
+}
+
+.campus-ai-input {
+  flex: 1;
+  min-width: 0;
+  height: 42px;
+  padding: 0 14px;
+  border: 1px solid #ddd;
+  border-radius: 22px;
+  outline: none;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.campus-ai-input:focus {
+  border-color: #6c4cff;
+}
+
+.campus-ai-send {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background: #6c4cff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.campus-ai-send:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

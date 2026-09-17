@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { MessageCircle, X, Send, Bot } from "lucide-react";
 
@@ -19,7 +20,6 @@ function CampusAI() {
       return;
     }
 
-    // Add user's message to chat
     setMessages((previous) => [
       ...previous,
       {
@@ -52,9 +52,7 @@ function CampusAI() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(
-          data.message || "AI request failed."
-        );
+        throw new Error(data.message || "AI request failed.");
       }
 
       setMessages((previous) => [
@@ -110,7 +108,6 @@ function CampusAI() {
           {/* HEADER */}
 
           <div className="campus-ai-header">
-
             <div className="campus-ai-title">
 
               <div className="campus-ai-icon">
@@ -131,7 +128,6 @@ function CampusAI() {
             >
               <X size={20} />
             </button>
-
           </div>
 
           {/* MESSAGES */}
@@ -163,19 +159,18 @@ function CampusAI() {
 
           <div className="campus-ai-input-area">
 
-            <textarea
-              value={message}
-              onChange={(event) =>
-                setMessage(event.target.value)
-              }
-              onKeyDown={handleKeyDown}
+            <input
+              type="text"
               placeholder="Ask Campus AI..."
-              rows="1"
-              disabled={loading}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={handleKeyDown}
+              className="campus-ai-input"
             />
 
             <button
               onClick={sendMessage}
+              className="campus-ai-send"
               disabled={loading || !message.trim()}
               aria-label="Send message"
             >
@@ -191,4 +186,6 @@ function CampusAI() {
 }
 
 export default CampusAI;
+
+
 
