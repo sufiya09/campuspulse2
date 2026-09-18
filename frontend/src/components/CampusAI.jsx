@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { MessageCircle, X, Send, Bot } from "lucide-react";
 
@@ -32,9 +31,8 @@ function CampusAI() {
     setLoading(true);
 
     try {
-      console.log("Sending AI request...");
-
-      const response = await fetch("https://campuspulse2.onrender.com/api/ai", {
+      const response = await fetch(
+        "https://campuspulse2.onrender.com/api/ai",
         {
           method: "POST",
           headers: {
@@ -45,8 +43,6 @@ function CampusAI() {
           }),
         }
       );
-
-      console.log("AI response status:", response.status);
 
       const data = await response.json();
 
@@ -69,7 +65,7 @@ function CampusAI() {
         {
           sender: "ai",
           text:
-            "Sorry, I couldn't connect to the AI service. Please make sure the backend is running.",
+            "Sorry, I couldn't connect to the AI service. Please try again.",
         },
       ]);
     } finally {
@@ -86,8 +82,6 @@ function CampusAI() {
 
   return (
     <>
-      {/* AI CHAT BUTTON */}
-
       {!open && (
         <button
           className="campus-ai-button"
@@ -99,16 +93,10 @@ function CampusAI() {
         </button>
       )}
 
-      {/* AI CHAT WINDOW */}
-
       {open && (
         <div className="campus-ai-window">
-
-          {/* HEADER */}
-
           <div className="campus-ai-header">
             <div className="campus-ai-title">
-
               <div className="campus-ai-icon">
                 <Bot size={21} />
               </div>
@@ -117,7 +105,6 @@ function CampusAI() {
                 <strong>Campus Pulse AI</strong>
                 <span>Campus assistant</span>
               </div>
-
             </div>
 
             <button
@@ -129,10 +116,7 @@ function CampusAI() {
             </button>
           </div>
 
-          {/* MESSAGES */}
-
           <div className="campus-ai-messages">
-
             {messages.map((item, index) => (
               <div
                 key={index}
@@ -151,13 +135,9 @@ function CampusAI() {
                 Thinking...
               </div>
             )}
-
           </div>
 
-          {/* INPUT */}
-
           <div className="campus-ai-input-area">
-
             <input
               type="text"
               placeholder="Ask Campus AI..."
@@ -175,9 +155,7 @@ function CampusAI() {
             >
               <Send size={18} />
             </button>
-
           </div>
-
         </div>
       )}
     </>
